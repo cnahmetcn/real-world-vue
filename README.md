@@ -55,3 +55,9 @@ All other component are nested within it (Root Component)
 
 ### main.js
 Renders App and mounts it to DOM
+
+### Diğer Notlar
+
+- Each component creates a new Axios instance
+- Our API code all over our application
+- So we can create a generic service (EventService)

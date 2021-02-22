@@ -8,6 +8,8 @@
 <script>
 // @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
+// import axios from "axios";
+import EventService from "@/services/EventService.js";
 
 export default {
   name: "EventList",
@@ -16,42 +18,30 @@ export default {
   },
   data() {
     return {
-      events: [
-        {
-          id: 5928101,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          description: "Find yout new feline friend at this event.",
-          location: "Meow Town",
-          date: "February 22, 2021",
-          time: "12:00",
-          petsAllowed: true,
-          organizer: "Ahmet Can"
-        },
-        {
-          id: 5928101,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          description: "Find yout new feline friend at this event.",
-          location: "Meow Town",
-          date: "February 22, 2021",
-          time: "12:00",
-          petsAllowed: true,
-          organizer: "Ahmet Can"
-        },
-        {
-          id: 5928101,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          description: "Find yout new feline friend at this event.",
-          location: "Meow Town",
-          date: "February 22, 2021",
-          time: "12:00",
-          petsAllowed: true,
-          organizer: "Ahmet Can"
-        }
-      ]
+      events: null
     };
+  },
+  created() {
+    //Lifecycle hooks
+    // axios
+    //   .get(
+    //     "https://my-json-server.typicode.com/cnahmetcn/real-world-vue/events"
+    //   )
+    //   .then(response => {
+    //     // console.log("events", response.data);
+    //     this.events = response.data;
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+
+    EventService.getEvents()
+      .then(response => {
+        this.events = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>
