@@ -7,43 +7,43 @@
 
 <script>
 // @ is an alias to /src
-import EventCard from "@/components/EventCard.vue";
-// import axios from "axios";
-import EventService from "@/services/EventService.js";
+import EventCard from '@/components/EventCard.vue'
+// import axios from 'axios'
+import EventService from '@/services/EventService.js'
 
 export default {
-  name: "EventList",
+  name: 'EventList',
   components: {
     EventCard
   },
   data() {
     return {
       events: null
-    };
+    }
   },
   created() {
     //Lifecycle hooks
     // axios
     //   .get(
-    //     "https://my-json-server.typicode.com/cnahmetcn/real-world-vue/events"
+    //     'https://my-json-server.typicode.com/cnahmetcn/real-world-vue/events'
     //   )
     //   .then(response => {
-    //     // console.log("events", response.data);
-    //     this.events = response.data;
+    //     // console.log('events', response.data)
+    //     this.events = response.data
     //   })
     //   .catch(error => {
-    //     console.log(error);
-    //   });
+    //     console.log(error)
+    //   })
 
     EventService.getEvents()
       .then(response => {
-        this.events = response.data;
+        this.events = response.data
       })
       .catch(error => {
-        console.log(error);
-      });
+        console.log(error)
+      })
   }
-};
+}
 </script>
 
 <style scoped>

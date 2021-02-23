@@ -1,19 +1,19 @@
-import axios from "axios";
+import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: "https://my-json-server.typicode.com/cnahmetcn/real-world-vue",
+  baseURL: 'https://my-json-server.typicode.com/cnahmetcn/real-world-vue',
   withCredentials: false,
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
   }
-});
+})
 
 export default {
   getEvents() {
-    return apiClient.get("/events");
+    return apiClient.get('/events')
   },
   getEvent(id) {
-    return apiClient.get("/events/" + id);
+    return apiClient.get('/events/' + id)
   }
-};
+}
